@@ -10,6 +10,9 @@ import { TableManagementComponent } from './table-management/table-management.co
 import { CostManagementComponent } from './cost-management/cost-management.component';
 import { NotesComponent } from './notes/notes.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth/auth.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,6 +22,7 @@ const appRoutes: Routes =[
  {path:'cost-management', component: CostManagementComponent},
  {path:'notes', component: NotesComponent},
  {path:'statistics', component: StatisticsComponent},
+ {path:'auth', component: AuthComponent}
 ];
 
 
@@ -30,12 +34,15 @@ const appRoutes: Routes =[
     TableManagementComponent,
     CostManagementComponent,
     NotesComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    AuthComponent,
+
   ],
   imports: [
     BrowserModule, 
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
