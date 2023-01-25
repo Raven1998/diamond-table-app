@@ -10,10 +10,12 @@ import { of } from "rxjs";
 })
 export class AuthComponent{
 
-    isLoginMode=true;
-
+    isLoginMode=true; //Standard Login or First Time Login
+    error:string =null;
+    
     constructor(private authService:AuthService) {}
 
+    //Switching beetwen modes
     onSwitchMode(){
         this.isLoginMode = !this.isLoginMode;
     }
@@ -25,8 +27,23 @@ export class AuthComponent{
         const login = form.value.login;
         const password = form.value.password;
         
-        
-        this.authService.signup(login,password).subscribe(resData =>{console.log(resData)}, error =>{console.log(error);});
+        //For First Time Login mode
+        if(!this.isLoginMode){
+        this.authService.signup(login,password).subscribe(
+            resData =>{
+                console.log(resData)
+            }, 
+            errorMessage =>{
+                this.error=errorMessage;
+              console.log(errorMessage) ;
+            }
+                
+        );
+        }
+        //For standard login mode
+        else{}
+
+        form.reset();
     }
 
 
