@@ -28,5 +28,11 @@ export class AuthService{
         }))
     }
 
+    login(login: string, password:string){
+
+        return this.http.post<AuthResponseData>('https://localhost:5001/login',{Username: login, Password: password})
+        .pipe()
+    }
+
     
 }

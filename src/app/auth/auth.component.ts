@@ -26,10 +26,21 @@ export class AuthComponent{
         if (!form.valid){return;}
         const login = form.value.login;
         const password = form.value.password;
+
+        let authObs:Observable<AuthResponseData>;
         
         //For First Time Login mode
         if(!this.isLoginMode){
-        this.authService.signup(login,password).subscribe(
+        authObs = this.authService.signup(login,password)
+
+        }
+        //For standard login mode
+        else{
+            authObs = this.authService.login(login,password)
+        }
+
+        //Subscribing the observable for First Time Login or standard login 
+        authObs.subscribe(
             resData =>{
                 console.log(resData)
             }, 
@@ -39,9 +50,6 @@ export class AuthComponent{
             }
                 
         );
-        }
-        //For standard login mode
-        else{}
 
         form.reset();
     }
