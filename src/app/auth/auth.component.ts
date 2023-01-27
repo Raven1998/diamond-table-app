@@ -3,6 +3,7 @@ import { NgForm } from "@angular/forms";
 import { Observable } from "rxjs";
 import { AuthResponseData, AuthService } from "./auth.service";
 import { of } from "rxjs";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-auth',
@@ -13,7 +14,7 @@ export class AuthComponent{
     isLoginMode=true; //Standard Login or First Time Login
     error:string =null;
     
-    constructor(private authService:AuthService) {}
+    constructor(private authService:AuthService, private router: Router) {}
 
     //Switching beetwen modes
     onSwitchMode(){
@@ -43,6 +44,7 @@ export class AuthComponent{
         authObs.subscribe(
             resData =>{
                 console.log(resData)
+                this.router.navigate(['']);
             }, 
             errorMessage =>{
                 this.error=errorMessage;

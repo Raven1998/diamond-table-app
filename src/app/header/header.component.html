@@ -1,8 +1,18 @@
-<ul>
-    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Schedule</a></li>
-    <li routerLinkActive="active"><a routerLink="/table-management">Table Management</a></li>
-    <li routerLinkActive="active"><a routerLink="/cost-management">Cost Management</a></li>
-    <li routerLinkActive="active"><a routerLink="/notes">Notes</a></li>
-    <li routerLinkActive="active"><a routerLink="/statistics">Statistics</a></li>
-    <li routerLinkActive="active"><a routerLink="/auth">Login</a></li>
+
+<ul >
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/" *ngIf="isAuthenticated">Schedule</a></li>
+    <li routerLinkActive="active"><a routerLink="/table-management" *ngIf="isAuthenticated">Table Management</a></li>
+    <li routerLinkActive="active"><a routerLink="/cost-management" *ngIf="isAuthenticated">Cost Management</a></li>
+    <li routerLinkActive="active"><a routerLink="/notes" *ngIf="isAuthenticated">Notes</a></li>
+    <li routerLinkActive="active"><a routerLink="/statistics" *ngIf="isAuthenticated">Statistics</a></li>
+    <li routerLinkActive="active"><a routerLink="/auth" *ngIf="!isAuthenticated">Login</a></li>
+
+    <li *ngIf="isAuthenticated">
+      <a>Logout</a>
+    </li>
+  </ul>
+
+  <ul >
+    
+
   </ul>
