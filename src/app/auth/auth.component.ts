@@ -1,6 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { Observable } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { AuthResponseData, AuthService } from "./auth.service";
 import { of } from "rxjs";
 import { Router } from "@angular/router";
@@ -11,10 +11,14 @@ import { Router } from "@angular/router";
 })
 export class AuthComponent{
 
+    
+
     isLoginMode=true; //Standard Login or First Time Login
     error:string =null;
     
     constructor(private authService:AuthService, private router: Router) {}
+
+
 
     //Switching beetwen modes
     onSwitchMode(){

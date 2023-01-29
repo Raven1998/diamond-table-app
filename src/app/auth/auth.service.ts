@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import {HttpClient, HttpErrorResponse} from '@angular/common/http'
-import { catchError, Subject, tap } from "rxjs";
+import { BehaviorSubject, catchError, Subject, tap } from "rxjs";
 import { throwError } from "rxjs";
 import { User } from "./user.model";
+import { Route, Router } from "@angular/router";
 
 export interface AuthResponseData {
     name: string;
@@ -13,9 +14,10 @@ export interface AuthResponseData {
 @Injectable({providedIn:"root"})
 export class AuthService{
 
-    user = new Subject<User>()
+    user = new BehaviorSubject<User>(null);
+    
 
-    constructor(private http:HttpClient) {}
+    constructor(private http:HttpClient, private router: Router) {}
 
     signup(login: string, password: string){
 
@@ -29,12 +31,29 @@ export class AuthService{
         .pipe(catchError(this.handleError), tap(resData=>{this.handleAuthentication(resData.name,resData.role,resData.token)}))
     }
 
+    logout(){
+        this.user.next(null);
+        this.router.navigate(['/auth']);
+    }
+
+    autoLogin(){
+      const userData:{login:string,role:string,_token:string,_tokenExpirationDate:Date} =JSON.parse(localStorage.getItem('userData'));
+      if(!userData){return};
+        
+      const loadedUser = new User(userData.login,userData.role,userData._token,userData._tokenExpirationDate);
+      console.log(loadedUser);
+      if(loadedUser.token){
+        this.user.next(loadedUser);
+      }
+    }
+
 
     private handleAuthentication(login:string, role:string, token:string){
 
             const expirationDate = new Date(new Date().getTime() + 28800000);
             const user =new User(login,role,token,expirationDate);
             this.user.next(user);
+            localStorage.setItem('userData', JSON.stringify(user));
     }
 
     //Private method for handlingErrors
