@@ -14,15 +14,16 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { AuthGuard } from './auth/auth.guard';
 
 
 
 const appRoutes: Routes =[
- {path:'', component: ScheduleComponent},
- {path:'table-management', component: TableManagementComponent},
- {path:'cost-management', component: CostManagementComponent},
- {path:'notes', component: NotesComponent},
- {path:'statistics', component: StatisticsComponent},
+ {path:'', component: ScheduleComponent, canActivate: [AuthGuard]},
+ {path:'table-management', component: TableManagementComponent, canActivate: [AuthGuard]},
+ {path:'cost-management', component: CostManagementComponent, canActivate: [AuthGuard]},
+ {path:'notes', component: NotesComponent, canActivate: [AuthGuard]},
+ {path:'statistics', component: StatisticsComponent, canActivate: [AuthGuard]},
  {path:'auth', component: AuthComponent}
 ];
 

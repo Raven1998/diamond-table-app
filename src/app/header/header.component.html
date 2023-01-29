@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="isAuthenticated">
 <ul >
     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/" *ngIf="isAuthenticated">Schedule</a></li>
     <li routerLinkActive="active"><a routerLink="/table-management" *ngIf="isAuthenticated">Table Management</a></li>
