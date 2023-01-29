@@ -12,7 +12,8 @@ import { NotesComponent } from './notes/notes.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 
 
@@ -44,7 +45,7 @@ const appRoutes: Routes =[
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass:AuthInterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
