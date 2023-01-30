@@ -1,0 +1,138 @@
+.authComponent{
+    height:100vh;
+    width:100vw;
+    position: relative;
+    
+}
+.authContainer{
+  position: absolute;
+  background-color: #04341498;
+  width: 100vw;
+  height: 40vh;
+  top: 30%;
+}
+
+.diamond-logo{
+    width: 55%;
+    float: left;
+    height: 100%;
+    position: relative;
+}
+
+.authBox{
+    width: 45%;
+    float: right;
+    height: 100%;
+    position: relative;
+}
+
+img{
+    width:55%;
+    height: 100%;
+    position: absolute;
+}
+
+.error{
+    color:red;
+    font-weight: bold;
+    padding-top:1%;
+    position: absolute;
+}
+
+.formBox{
+    padding-top:2%;
+    width: 100%;
+    position: absolute;
+    height:70%;
+    top:10%;
+}
+
+.formGroup {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+  }
+
+.form-input{
+font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.3rem;
+  color: white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+ &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form-label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+
+}
+
+.form-label{
+    position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+
+.form-input:focus {
+    ~ .form-label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 1rem;
+      color: #11998e;
+      font-weight:700;    
+    }
+    padding-bottom: 6px;  
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e,#38ef7d);
+    border-image-slice: 1;
+  }
+  /* reset input */
+  .form-input{
+    &:required,&:invalid { box-shadow:none; }
+  }
+
+  .form-button{
+    background-color: #11998e;
+    border: 1px solid #11998e;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    outline: 0;
+    margin-top:10px;
+    padding: 5px 20px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .form-button:hover{
+    box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+    background-color: #08833b;
+    border: 1px solid #08833b;
+    
+  }

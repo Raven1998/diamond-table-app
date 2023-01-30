@@ -1,24 +1,39 @@
-<div class="row">
-<div class="col-xs-12 col-md-6 col-md-offset-3">
-    <div class="alert alert-danger"  *ngIf="error">
-        <p>{{error}}</p>
+<div class="authComponent">
+
+    <div class="authContainer">
+
+        <div class="diamondLogo"><img src="../diamondLogo.png"></div>
+        <div class="authBox">
+        
+            <div class="formBox">
+                <h3><p>Provide credentials to access the system</p></h3>
+                <form  #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+                    <div class="formGroup">
+                        <input type="text" id='login' class="form-input" placeholder='login' ngModel name="login" required>
+                        <label for="login" class="form-label">Login</label>
+                    </div>
+                    <div class="formGroup">
+                        
+                        <input type="password" id='password' class="form-input" placeholder='password' ngModel name="password" required>
+                        <label for="password" class="form-label">Password</label>
+                    </div>
+                    <div>
+                        <button class="form-button" type="submit">{{ isLoginMode ? 'Login' : 'Register Admin Account'}}</button> |
+                        <button class="form-button" (click)='onSwitchMode()' type="button">{{ isLoginMode ? 'First Time Login' : 'Back to login'}}</button>
+                        
+                    </div>
+                    
+                    </form>
+                    
+                    <div class="error"  *ngIf="error">
+                        <p>{{error}}</p>
+                    </div>
+            </div>
+
+            
+
+        </div>
+
     </div>
-    <form  #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
-        <div class="form-group">
-            <label for="login">Login</label>
-            <input type="text" id='login' class="form-control" ngModel name="login" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id='password' class="form-control" ngModel name="password" required>
-        </div>
-        <div>
-            <button class="btn btn-primary" type="submit">{{ isLoginMode ? 'Login' : 'Register Admin Account'}}</button>
-        </div>
-        <div>
-            <button class="btn btn-primary" (click)='onSwitchMode()' type="button">{{ isLoginMode ? 'First Time Login' : 'Sign Up'}}</button>
-        </div>
-    </form>
-</div>
 
 </div>

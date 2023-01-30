@@ -1,6 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+body,html{
+    height:100%;
+}
 body{
-    background-color: rgb(24, 24, 24);
+    //background-color: rgb(24, 24, 24);
     color:rgb(255, 255, 255);
+    background-image: url("wallpaper.jpg");
+    background-color: #cccccc;
+    min-height: 600px;
+  max-height: 2000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+    
     
 }
