@@ -16,6 +16,7 @@ import { NotesService } from './notes.service';
 export class NotesComponent implements OnInit{
   error:string =null;
   loadedNotes:Note[] =[];
+  isEdited =false;
   
 
   constructor(private http: HttpClient,private notesService: NotesService, private authService: AuthService){}
@@ -24,6 +25,7 @@ export class NotesComponent implements OnInit{
     this.notesService.getNotes().subscribe(notes =>{
       this.loadedNotes = notes;
     },error =>{this.error =error.message});
+
   }
 
   onCreateNote(form:NgForm){
@@ -31,10 +33,11 @@ export class NotesComponent implements OnInit{
     const note:string = form.value.note
 
     this.notesService.createNote(note).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message});
-    
-    //return this.authService.user.pipe(take(1), exhaustMap(user =>{return this.http.post('https://localhost:5001/notes',{content:note},{headers:new HttpHeaders({'Authorization' :'Bearer '+user.token})});}))
+    this.ngOnInit();
     
   }
+
+  
 
 
 

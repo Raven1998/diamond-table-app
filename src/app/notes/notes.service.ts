@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map } from "rxjs";
 
@@ -20,10 +20,25 @@ export class NotesService{
       return this.http.get<{[key : string]:Note}>('https://localhost:5001/notes')
     .pipe(map(responseData =>{
       const notesArray: Note[] =[];
-      for (const key in responseData){notesArray.push({...responseData[key], id: key})};
+      for (const key in responseData){notesArray.push({...responseData[key], nr: key})};
+      console.log(notesArray)
       return notesArray;
     }))
     
     }
+
+    //NOT FINISHED
+    updateNote(id:string,content:string){
+      const requestParams = new HttpParams().append('newContent',content)
+      return this.http.patch('https://localhost:5001/notes/'+id,{},{params: requestParams})
+    }
+
+    deleteNote(id:string){
+      return this.http.delete('https://localhost:5001/notes/'+id)
+    }
     
+}
+
+function newHttpParams() {
+  throw new Error("Function not implemented.");
 }

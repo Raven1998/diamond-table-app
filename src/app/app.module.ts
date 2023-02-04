@@ -9,6 +9,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { TableManagementComponent } from './table-management/table-management.component';
 import { CostManagementComponent } from './cost-management/cost-management.component';
 import { NotesComponent } from './notes/notes.component';
+import { NoteComponent } from './notes/note.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
@@ -38,6 +39,7 @@ const appRoutes: Routes =[
     NotesComponent,
     StatisticsComponent,
     AuthComponent,
+    NoteComponent
 
   ],
   imports: [

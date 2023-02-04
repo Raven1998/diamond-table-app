@@ -1,0 +1,26 @@
+.statisticsComponent{
+        height:90vh;
+        width:100vw;
+        position: relative;
+    
+}
+
+.statsBoxLeft, .statsBoxRight{
+    
+    height: 95%;
+    width:45%;
+    background:#333333e7;
+    float:left;
+    margin:2.5%;
+    border-radius: 10px;
+    position: relative;
+}
+
+.statsTitle{
+    text-align: center;
+}
+
+.stat-item{
+    background: #06421a;
+    
+}
