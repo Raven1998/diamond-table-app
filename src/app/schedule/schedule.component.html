@@ -1,1 +1,23 @@
+<form  #resForm="ngForm" (ngSubmit)="onCreateReservation(resForm)">
+    <div class="form-group">
+        <input list="tables" placeholder="Table" class='form-control' ngModel name="resTableId">
+                    <datalist id="tables">
+                        <option *ngFor="let table of loadedTables" value={{table.id}}>{{table.name}}</option>
+                    </datalist>
+        <input type="text" id='bookerName' class="form-control" ngModel name="bookerName" placeholder="bookerName" required>
+        <input type="text" id='email' class="form-control" ngModel name="email" placeholder="email" required>
+        <input type="text" id='phone' class="form-control" ngModel name="phone" placeholder="phone" required>
 
+ 
+        <input type="datetime-local" id="startDate" class="form-control" ngModel name="endDate" placeholder="Start" required>
+        <input type="datetime-local" id="endDate" class="form-control" ngModel name="endDate" placeholder="Start" required>
+
+
+        <input type="checkbox" id="isPaid" name="isPaid" ngModel name='isPaid' required>
+
+    </div>
+    
+    <div class="form-buttons">
+        <button class="form-button" type="submit">Create Reservation</button>
+    </div> 
+</form>
