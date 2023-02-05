@@ -27,7 +27,7 @@ export class NotesService{
     
     }
 
-    //NOT FINISHED
+    
     updateNote(id:string,content:string){
       const requestParams = new HttpParams().append('newContent',content)
       return this.http.patch('https://localhost:5001/notes/'+id,{},{params: requestParams})
@@ -39,6 +39,3 @@ export class NotesService{
     
 }
 
-function newHttpParams() {
-  throw new Error("Function not implemented.");
-}

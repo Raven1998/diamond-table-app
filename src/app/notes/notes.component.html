@@ -4,7 +4,7 @@
         <div class="alert alert-danger"  *ngIf="error">
             <p>{{error}}</p>
         </div>
-            <form  #authForm="ngForm" (ngSubmit)="onCreateNote(authForm)">
+            <form  #noteForm="ngForm" (ngSubmit)="onCreateNote(noteForm)">
                 <div class="form-group">
                     <input type="text" id='note' class="form-control" ngModel name="note" placeholder="Note content..." required>
                 </div>

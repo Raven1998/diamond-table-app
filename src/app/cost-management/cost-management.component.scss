@@ -1,0 +1,95 @@
+.costsComponent{
+    height:90vh;
+    width:100vw;
+    position: relative;
+}
+
+.costMain{
+    height: 100%;
+    width:80%;
+    float:left
+}
+
+.costDesc{
+    height: 98%;
+    margin-top:2%;
+    width:20%;
+    float:right;
+    border-left: 3px solid #bbb;
+    padding-left:1%;
+    padding-right: 1%;
+}
+
+.create-cost-zone{
+    width: 90%;
+    height:16%;
+    margin-top:2%;
+    margin-left:5%;
+    background-color: #000000c2;
+    border-radius: 10px;
+}
+
+.costs-zone{
+    width: 90%;
+    height: 79%;
+    margin-top:2%;
+    margin-left:5%;
+    background-color: #000000c2;
+    border-radius: 10px;
+}
+
+.form-button{
+    background-color: #11998e;
+    border: 1px solid #11998e;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    outline: 0;
+    margin-top:10px;
+    padding: 5px 20px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .form-button:hover{
+    box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+    background-color: #08833b;
+    border: 1px solid #08833b;
+    
+  }
+
+    .form-group{
+    text-align: center;
+    margin-bottom:0;
+    }
+  .form-control{
+    text-align: center;
+    width:20%;
+    margin-left:1%;
+    margin-right: 1%;
+    display: inline;
+    
+  }
+
+  h2{
+    text-align: center;
+    background-color: #06421ade;
+    
+  }
+
+  .form-buttons{
+    
+    text-align: center;
+  }
+  
+  
+  

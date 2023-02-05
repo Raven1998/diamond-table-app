@@ -1,1 +1,53 @@
-<p>table-management works!</p>
+<div class="tablesComponent">
+    <div class="tablesMain">
+
+        <div class="create-table-zone">
+            <div class="alert alert-danger"  *ngIf="error">
+                <p>{{error}}</p>
+            </div>
+
+            <h2>Create Table</h2>
+
+            <form  #tableForm="ngForm" (ngSubmit)="onCreateTable(tableForm)">
+                <div class="form-group">
+                    
+                    
+                    <input type="text" id='tableName' class="form-control" ngModel name="tableName" placeholder="Table name" required>
+                    <input type="text" id='tableDesc' class="form-control" ngModel name="tableDesc" placeholder="Description" required>
+
+                    <input list="costs" placeholder="Cost" class='form-control' ngModel name="tableCostId">
+                    <datalist id="costs">
+                        <option *ngFor="let cost of loadedCosts" value={{cost.id}}>{{cost.name}}</option>
+                    </datalist>
+                
+                
+                </div>
+                
+                <div class="form-buttons">
+                    <button class="form-button" type="submit">Create Table</button>
+                </div> 
+            </form>
+
+        </div>
+
+        <div class="tables-zone">
+            <h2>Tables List</h2>
+
+            <p *ngIf="loadedTables.length <1">No Tables available!</p>
+
+            <app-table *ngFor="let table of loadedTables" [targetTable]="table"></app-table>
+        </div>
+
+    </div>
+
+
+
+
+    <div class ='tableDesc'>
+        <h1>Table Management</h1>
+        <p>Create the cost by assigning the prize that will be charged for each one hour of table reservation.</p>
+        <p>Later , you can assign the specified cost to each table separately.</p>
+        <p>Before removing Cost , you have to assign other type of cost to all of tables which was assigned to cost you want to remove</p>
+    </div>
+
+</div>

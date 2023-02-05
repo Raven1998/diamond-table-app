@@ -1,0 +1,25 @@
+<div class="costComponent">
+
+    <div class="costContent">
+        <div *ngIf="!isEdited">{{targetCost.name}}</div> 
+        <div *ngIf="isEdited"><input type="text" class="editInput" value={{targetCost.name}} #newCostName></div>
+
+    </div>
+
+    <div class ='prizeContent'>
+        <p *ngIf="!isEdited">{{targetCost.costValue}} zł/h</p>
+        <div *ngIf="isEdited"><input type="text" class="editInput" value={{targetCost.costValue}} #newCostValue></div>
+    
+    </div>
+
+    <div class="buttons-line" >
+        <button class='edit' (click)="allowEdit()" *ngIf="!isEdited">Edit</button>
+        <button class="delete" (click)="onDeleteCost(targetCost.id)" *ngIf="!isEdited">Delete</button>
+        <button class='save' (click)="onEditCost()" *ngIf="isEdited">Save</button>
+        <button class='delete' (click)="onCancel()" *ngIf="isEdited">Cancel</button>
+    </div>
+
+
+
+
+</div>

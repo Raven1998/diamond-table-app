@@ -1,28 +1,29 @@
-.noteComponent{
+.costComponent{
     width: 98%;
     height:12%;
     margin:1%;
-    background-color: #000000d5;
+    background-color: #000000c9;
+    border: 2px solid;
+    border-color: rgb(6, 167, 46);
     border-radius:10px;
     
 }
 
-.noteContent{
+.costContent{
     padding: 1%;
     width:80%;
     float: left;
     font-weight: bold;
 }
-
-.dateContent{
+.prizeContent{
     padding: 1%;
     width:20%;
     float:right;
-    color:#887e7e;
 }
 .buttons-line{
     width:100%;
     padding: 1%;
+
 }
 
 .edit{
@@ -102,6 +103,5 @@
   .editInput:focus{
     border:none;
   }
+
   
-
-

@@ -1,1 +1,48 @@
-<p>cost-management works!</p>
+<div class="costsComponent">
+    <div class="costMain">
+
+        <div class="create-cost-zone">
+            <div class="alert alert-danger"  *ngIf="error">
+                <p>{{error}}</p>
+            </div>
+
+            <h2>Create Cost</h2>
+
+            <form  #costForm="ngForm" (ngSubmit)="onCreateCost(costForm)">
+                <div class="form-group">
+                    
+                    
+                    <input type="text" id='costName' class="form-control" ngModel name="costName" placeholder="Name of cost" required>
+                    <input type="text" id='costValue' class="form-control" ngModel name="costValue" placeholder="Prize per hour" required>
+                
+                
+                </div>
+                
+                <div class="form-buttons">
+                    <button class="form-button" type="submit">Create Cost</button>
+                </div> 
+            </form>
+
+        </div>
+
+        <div class="costs-zone">
+            <h2>Costs List</h2>
+
+            <p *ngIf="loadedCosts.length <1">No costs available!</p>
+
+            <app-cost *ngFor="let cost of loadedCosts" [targetCost]="cost"></app-cost>
+        </div>
+
+    </div>
+
+
+
+
+    <div class ='costDesc'>
+        <h1>Cost Management</h1>
+        <p>Create the cost by assigning the prize that will be charged for each one hour of table reservation.</p>
+        <p>Later , you can assign the specified cost to each table separately.</p>
+        <p>Before removing Cost , you have to assign other type of cost to all of tables which was assigned to cost you want to remove</p>
+    </div>
+
+</div>

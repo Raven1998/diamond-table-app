@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { TableManagementComponent } from './table-management/table-management.component';
 import { CostManagementComponent } from './cost-management/cost-management.component';
+import { CostComponent } from './cost-management/cost.component';
 import { NotesComponent } from './notes/notes.component';
 import { NoteComponent } from './notes/note.component';
 import { StatisticsComponent } from './statistics/statistics.component';
@@ -16,6 +17,7 @@ import { AuthService } from './auth/auth.service';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AuthGuard } from './auth/auth.guard';
+import { TableComponent } from './table-management/table.component';
 
 
 
@@ -39,7 +41,9 @@ const appRoutes: Routes =[
     NotesComponent,
     StatisticsComponent,
     AuthComponent,
-    NoteComponent
+    NoteComponent,
+    CostComponent,
+    TableComponent
 
   ],
   imports: [
