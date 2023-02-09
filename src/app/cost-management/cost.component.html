@@ -1,6 +1,8 @@
 <div class="costComponent">
 
+    <div class="icon"><img src="./cost.png"></div>
     <div class="costContent">
+        
         <div *ngIf="!isEdited">{{targetCost.name}}</div> 
         <div *ngIf="isEdited"><input type="text" class="editInput" value={{targetCost.name}} #newCostName></div>
 

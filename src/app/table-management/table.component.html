@@ -1,14 +1,25 @@
 <div class="tableComponent">
 
+    <div class="icon"><img src="./table.png"></div>
+
     <div class="tableContent">
         <div *ngIf="!isEdited">{{targetTable.name}}</div> 
         <div *ngIf="!isEdited">{{targetTable.description}}</div> 
         <div *ngIf="isEdited"><input type="text" class="editInput" value={{targetTable.name}} #newTableName></div>
+        <div *ngIf="isEdited"><input type="text" class="editInput" value={{targetTable.description}} #newTableDesc></div>
 
     </div>
 
     <div class ='prizeContent'>
-        <div *ngIf="isEdited"><input type="text" class="editInput"  #newCostValue></div>
+        Assigned Cost:
+        <div *ngIf="!isEdited">{{targetTable.costId}}</div>
+        <div *ngIf="isEdited">
+            <input list="costs" placeholder="Cost" class='editInput' value={{targetTable.costId}} #newTableCost>
+            <datalist id="costs">
+                <option *ngFor="let cost of loadedCosts" value={{cost.id}}>{{cost.name}}</option>
+            </datalist>
+        
+        </div>
     
     </div>
 

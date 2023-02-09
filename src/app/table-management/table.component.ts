@@ -1,4 +1,6 @@
-import { Component, ElementRef, Input, ViewChild } from "@angular/core";
+import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
+import { Cost } from "../cost-management/cost.model";
+import { CostsService } from "../cost-management/costs.service";
 import { TablesService } from "./tables.service";
 
 @Component({
@@ -6,15 +8,23 @@ import { TablesService } from "./tables.service";
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.scss']
   })
-export class TableComponent{
+export class TableComponent implements OnInit{
     @Input()targetTable;
     isEdited =false;
     error:string =null;
-    @ViewChild('newCostName',{static:false}) newCostName:ElementRef;
-    @ViewChild('newCostValue',{static:false}) newCostValue:ElementRef;
+    loadedCosts:Cost[] =[];
+    @ViewChild('newTableName',{static:false}) newTableName:ElementRef;
+    @ViewChild('newTableDesc',{static:false}) newTableValue:ElementRef;
+    @ViewChild('newTableCost',{static:false}) newTableCost:ElementRef;
 
-    constructor(private tablesService:TablesService){}
+    constructor(private tablesService:TablesService, private costsService:CostsService){}
 
+
+    ngOnInit(): void {
+      this.costsService.getCosts().subscribe(costs =>{
+        this.loadedCosts = costs;
+      },error =>{this.error =error.message});
+    }
     allowEdit(){
       this.isEdited =!this.isEdited;
     }
@@ -29,9 +39,10 @@ export class TableComponent{
     }
 
     onEditTable(){
-      const editName = this.newCostName.nativeElement.value;
-      const editValue =this.newCostValue.nativeElement.value;
-      this.tablesService.updateTable(this.targetTable.id,editName,editValue).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message})
+      const editName = this.newTableName.nativeElement.value;
+      const editDesc =this.newTableValue.nativeElement.value;
+      const editTableCost =this.newTableCost.nativeElement.value;
+      this.tablesService.updateTable(this.targetTable.id,editName,editDesc,editTableCost).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message})
       this.isEdited = !this.isEdited;
     }
 

@@ -1,6 +1,6 @@
 .tableComponent{
     width: 98%;
-    height:12%;
+    height:15%;
     margin:1%;
     background-color: #000000c9;
     border: 2px solid;
@@ -11,9 +11,10 @@
 
 .tableContent{
     padding: 1%;
-    width:80%;
+    width:70%;
     float: left;
     font-weight: bold;
+    padding-bottom: 0.5%;
 }
 .prizeContent{
     padding: 1%;
@@ -21,8 +22,10 @@
     float:right;
 }
 .buttons-line{
-    width:100%;
+    width:90%;
     padding: 1%;
+    padding-left: 9%;
+    
 
 }
 
@@ -103,5 +106,19 @@
   .editInput:focus{
     border:none;
   }
+
+  .icon{
+    padding-left: 1%;
+    height: 100%;
+    width:8%;
+    float:left;
+    
+  } 
+
+  img {
+    padding-top: 5%;
+    max-width: 90%;
+    max-height: 90%;
+}
 
   

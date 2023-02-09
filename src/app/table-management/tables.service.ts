@@ -29,10 +29,11 @@ export class TablesService{
     }
 
     
-    updateTable(id:string, name:string, value:string){
+    updateTable(id:string, name:string, desc:string, costId:string){
       let params={
         Name:name,
-        CostValue:value
+        Description:desc,
+        CostId:costId
       }
 
       const requestParams = new HttpParams({fromObject:params})
