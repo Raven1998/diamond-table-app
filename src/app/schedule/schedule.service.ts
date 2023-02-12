@@ -9,9 +9,9 @@ export class ScheduleService{
 
     constructor(private http:HttpClient){}
 
-    createReservation(tableId:string, bookerName:string, email:string, phonenumber:string,startDate:string,endDate:string,isPaid:string){
+    createReservation(tableId:string, bookerName:string, email:string, phonenumber:string,startDate:string,endDate:string,isPaid:string,note :string,resType:string){
 
-        return this.http.post('https://localhost:5001/reservations',{PoolTableId : tableId, BookerName :bookerName, email:email,PhoneNumber: phonenumber,StartDate: "05/02/2023 20:55", EndDate: "05/02/2023 22:55", IsPaid: isPaid})
+        return this.http.post('https://localhost:5001/reservations',{PoolTableId : tableId, BookerName :bookerName, email:email,PhoneNumber: phonenumber,StartDate: startDate, EndDate: endDate, IsPaid: isPaid, Note: note, ReservationType: resType})
  
      }
 

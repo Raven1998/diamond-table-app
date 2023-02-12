@@ -10,5 +10,6 @@ export interface Reservation{
     endDate:string
     isPaid:string;
     note?:string;
+    resType:string;
 
 }

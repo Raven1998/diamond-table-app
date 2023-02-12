@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AppComponent } from '../app.component';
 import { Table } from '../table-management/table.model';
 import { TablesService } from '../table-management/tables.service';
 import { Reservation } from './reservation.model';
@@ -15,8 +16,9 @@ export class ScheduleComponent implements OnInit{
   error:string =null;
   loadedTables:Table[] =[];
   loadedReservations:Reservation[] =[];
+  Date = null;
 
-  constructor(private scheduleService:ScheduleService, private tablesService:TablesService){}
+  constructor(private scheduleService:ScheduleService, private tablesService:TablesService, private appComponent :AppComponent){}
 
   ngOnInit(): void {
     this.tablesService.getTables().subscribe(tables =>{
@@ -29,6 +31,8 @@ export class ScheduleComponent implements OnInit{
 
     console.log(this.loadedReservations);
 
+    this.Date = this.appComponent.getDate();
+  
   }
 
   onCreateReservation(form:NgForm){
@@ -36,16 +40,37 @@ export class ScheduleComponent implements OnInit{
     const bookerName =form.value.bookerName;
     const email = form.value.email;
     const phone = form.value.phone;
-    const startDate=form.value.startDate;
-    const endDate=form.value.endDate;
+    const date =form.value.date;
+    const start=form.value.start;
+    const end=form.value.end;
     const isPaid =form.value.isPaid.toString();
+    const Note = form.value.note;
+    const resType = form.value.resType.toLowerCase();
+  
     
-    console.log(endDate);
+    
+
+    const splittedDate = date.split('-');
+    const parsedDate = splittedDate[2]+"/"+splittedDate[1]+"/"+splittedDate[0]
+    const startDate = parsedDate+" "+start;
+    const endDate = parsedDate+" "+end;
+
+    console.log(startDate);
 
     //"StartDate": "17/12/2022 15:55",
     //"EndDate": "17/12/2022 15:55",
-    this.scheduleService.createReservation(resTableId,bookerName,email,phone,startDate,endDate,isPaid).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message});
+    this.scheduleService.createReservation(resTableId,bookerName,email,phone,startDate,endDate,isPaid,Note,resType).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message});
     this.ngOnInit();
     
+  }
+
+  onChangeDateUp(){
+    this.appComponent.dateUp();
+    this.ngOnInit();
+  }
+
+  onChangeDateDown(){
+    this.appComponent.dateDown();
+    this.ngOnInit();
   }
 }

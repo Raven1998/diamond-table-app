@@ -1,23 +1,72 @@
-<form  #resForm="ngForm" (ngSubmit)="onCreateReservation(resForm)">
-    <div class="form-group">
-        <input list="tables" placeholder="Table" class='form-control' ngModel name="resTableId">
-                    <datalist id="tables">
-                        <option *ngFor="let table of loadedTables" value={{table.id}}>{{table.name}}</option>
-                    </datalist>
-        <input type="text" id='bookerName' class="form-control" ngModel name="bookerName" placeholder="bookerName" required>
-        <input type="text" id='email' class="form-control" ngModel name="email" placeholder="email" required>
-        <input type="text" id='phone' class="form-control" ngModel name="phone" placeholder="phone" required>
+<div class="scheduleComponent">
+    <div class="create-res-zone">
 
- 
-        <input type="datetime-local" id="startDate" class="form-control" ngModel name="endDate" placeholder="Start" required>
-        <input type="datetime-local" id="endDate" class="form-control" ngModel name="endDate" placeholder="Start" required>
+        <div class="alert alert-danger"  *ngIf="error">
+            <p>{{error}}</p>
+        </div>
+
+        <h2>Create Reservation</h2>
+
+        <form  #resForm="ngForm" (ngSubmit)="onCreateReservation(resForm)">
+            <div class="left-res-details">
+                <div class="res-topic">
+                    Reservation specification:
+                </div>
+
+                <input list="tables" placeholder="Table" class='form-control' ngModel name="resTableId">
+                            <datalist id="tables">
+                                <option *ngFor="let table of loadedTables" value={{table.id}}>{{table.name}}</option>
+                            </datalist>
+                <input list="resTypes" placeholder="Type" class='form-control' ngModel name="resType">
+                            <datalist id="resTypes">
+                                <option value="Phone"></option>
+                                <option value="Spontaneus"></option>
+                            </datalist>
+                <div class="res-topic">
+                               
+                 </div>
+                 <input type="text" id='note' class="form-control notes" ngModel name="note" placeholder="Notes" required>
+                 <input type="date" id="date" class="form-control time" ngModel name="date" placeholder="Start" required>
+                 <input type="time" id="start" class="form-control time" ngModel name="start" placeholder="Start" step="3600000" required>
+                <input type="time" id="end" class="form-control time" ngModel name="end" placeholder="End"  required>
+
+                 
+            </div>  
 
 
-        <input type="checkbox" id="isPaid" name="isPaid" ngModel name='isPaid' required>
+            <div class="right-res-details">
+                <div class="res-topic">
+                    Booker Details:
+                </div>
+                <input type="text" id='bookerName' class="form-control booker" ngModel name="bookerName" placeholder="Name" required>
+                <input type="text" id='email' class="form-control booker" ngModel name="email" placeholder="E-mail" required>
+                <input type="text" id='phone' class="form-control booker" ngModel name="phone" placeholder="Phone Number" required>
+                <div class="res-topic">
+                    Payment:
+                </div>
+                <label for="isPaid">Mark reservation as paid:</label>
+                 <input type="checkbox" id="isPaid" name="isPaid" class="form-checkbox" ngModel name='isPaid' required>
+            </div>
+            <div class="form-buttons">
+                
+                <button class="form-button" type="submit">Create Reservation</button>
+            </div> 
+            
+            
+        </form>
+    </div>
+
+    <div class="date-zone">
+        <button class="form-button day" (click)="onChangeDateDown()"> Previous day</button> 
+        <div class="date">{{Date}}</div> 
+        <button class="form-button day" (click)="onChangeDateUp()"> Next day</button>
+    </div>
+
+    <div class="schedule">
+
+
 
     </div>
-    
-    <div class="form-buttons">
-        <button class="form-button" type="submit">Create Reservation</button>
-    </div> 
-</form>
+
+
+</div>
