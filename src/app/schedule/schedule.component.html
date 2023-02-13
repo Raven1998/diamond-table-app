@@ -63,7 +63,8 @@
     </div>
 
     <div class="schedule">
-
+        <p *ngIf="loadedReservations.length <1">No reservations available!</p>
+        <p *ngFor="let res of loadedReservations" [targetRes]="res"></p>
 
 
     </div>

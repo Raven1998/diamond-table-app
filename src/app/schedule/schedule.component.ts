@@ -15,23 +15,28 @@ export class ScheduleComponent implements OnInit{
 
   error:string =null;
   loadedTables:Table[] =[];
-  loadedReservations:Reservation[] =[];
+  loadedReservations =[];
   Date = null;
+
 
   constructor(private scheduleService:ScheduleService, private tablesService:TablesService, private appComponent :AppComponent){}
 
   ngOnInit(): void {
+    this.Date = this.appComponent.getDate();
     this.tablesService.getTables().subscribe(tables =>{
       this.loadedTables = tables;
     },error =>{this.error =error.message});
 
-    this.scheduleService.getReservations().subscribe(reservations =>{
+    this.scheduleService.getReservations(this.Date).subscribe(reservations =>{
       this.loadedReservations = reservations;
     },error =>{this.error =error.message});
 
     console.log(this.loadedReservations);
 
-    this.Date = this.appComponent.getDate();
+   
+
+
+   
   
   }
 

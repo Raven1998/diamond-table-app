@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map } from "rxjs";
+import { AppComponent } from "../app.component";
 import { Reservation } from "./reservation.model";
 
 
@@ -15,13 +16,28 @@ export class ScheduleService{
  
      }
 
-     getReservations(){
+     getReservations(date:any){
         return this.http.get<any>('https://localhost:5001/reservations/all')
       .pipe(map(responseData =>{
-        const resArray: Reservation[] =[];
+        const resArray:Reservation[]=[];
         for (const key in responseData){resArray.push({...responseData[key], nr: key})};
         console.log(resArray)
-        return resArray;
+
+        
+        let requirement =date.replace(".","-");
+        let condition =requirement.replace(".","-");
+    
+        const splittedDate = condition.split('-');
+        const parsedDate = splittedDate[2]+"-"+splittedDate[1]+"-"+splittedDate[0]
+        
+        const filteredReservations =[];
+        for(let i =0;i<resArray.length;i++){
+            if(resArray[i].startDate.startsWith(parsedDate))
+            { filteredReservations.push(resArray[i])}
+        }
+    
+        console.log(filteredReservations);
+        return filteredReservations;
       }))
       
       }

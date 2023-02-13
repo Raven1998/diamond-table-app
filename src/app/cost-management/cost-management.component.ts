@@ -19,6 +19,7 @@ export class CostManagementComponent implements OnInit{
     this.costsService.getCosts().subscribe(costs =>{
       this.loadedCosts = costs;
     },error =>{this.error =error.message});
+
   }
 
   onCreateCost(form:NgForm){
