@@ -63,6 +63,22 @@
     </div>
 
     <div class="schedule">
+        <div class="timeline">
+            <div class="timeline-element">Table name</div>
+            <div class="timeline-element">11:00</div>
+            <div class="timeline-element">12:00</div>
+            <div class="timeline-element">13:00</div>
+            <div class="timeline-element">14:00</div>
+            <div class="timeline-element">15:00</div>
+            <div class="timeline-element">16:00</div>
+            <div class="timeline-element">17:00</div>
+            <div class="timeline-element">18:00</div>
+            <div class="timeline-element">19:00</div>
+            <div class="timeline-element">20:00</div>
+            <div class="timeline-element">21:00</div>
+            <div class="timeline-element">22:00</div>
+            <div class="timeline-element">23:00</div>
+        </div>
         <p *ngIf="loadedReservations.length <1">No reservations available!</p>
         <p *ngFor="let res of loadedReservations" [targetRes]="res"></p>
 
