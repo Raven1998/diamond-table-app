@@ -1,9 +1,10 @@
 <div class="notesComponent">
 
+    <div [className]="error ? 'error' : 'message'"  *ngIf="error || message">
+        <p *ngIf="error">{{error}}</p>
+        <p *ngIf="message">{{message}}</p>
+    </div>
     <div class="create-note-zone">
-        <div class="alert alert-danger"  *ngIf="error">
-            <p>{{error}}</p>
-        </div>
             <form  #noteForm="ngForm" (ngSubmit)="onCreateNote(noteForm)">
                 <div class="form-group">
                     <input type="text" id='note' class="form-control" ngModel name="note" placeholder="Note content..." required>
@@ -12,9 +13,12 @@
                 <div class="form-buttons">
                     <button class="form-button" type="submit">Create Note</button>
                 </div> 
+                
             </form>
     </div>
     
+    
+
     <div class ='notes-zone'>
         <p *ngIf="loadedNotes.length <1">No notes available!</p>
 

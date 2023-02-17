@@ -9,17 +9,25 @@ import { NgForm } from '@angular/forms';
     templateUrl: './note.component.html',
     styleUrls: ['./note.component.scss']
   })
-  export class NoteComponent{
+  export class NoteComponent implements OnInit{
     @Input()targetNote
     isEdited =false;
     error:string =null;
+    parsedCreationDate:string =null;
     @ViewChild('newContent',{static:false}) newContent:ElementRef;
     constructor(private notesService: NotesService, private notesComponent:NotesComponent){
         
     }
 
+    ngOnInit(): void {
+      const date = this.targetNote.createdDate;
+      const newDate = date.replace('T',' ');
+
+      this.parsedCreationDate =newDate.substr(0,16);
+    }
     allowEdit(){
         this.isEdited =true;
+        
       }
       onEditNote(){
         const editData = this.newContent.nativeElement.value;
