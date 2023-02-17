@@ -33,10 +33,6 @@ export class ScheduleComponent implements OnInit{
 
     console.log(this.loadedReservations);
 
-   
-
-
-   
   
   }
 

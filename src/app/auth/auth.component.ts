@@ -12,10 +12,8 @@ import { Router } from "@angular/router";
    
 })
 export class AuthComponent{
-
-    
-
     isLoginMode=true; //Standard Login or First Time Login
+    isLoading=false;
     error:string =null;
     
     constructor(private authService:AuthService, private router: Router) {}
@@ -36,10 +34,11 @@ export class AuthComponent{
 
         let authObs:Observable<AuthResponseData>;
         
+        this.isLoading=true;
         //For First Time Login mode
         if(!this.isLoginMode){
         authObs = this.authService.signup(login,password)
-
+            
         }
         //For standard login mode
         else{
@@ -50,10 +49,12 @@ export class AuthComponent{
         authObs.subscribe(
             resData =>{
                 console.log(resData)
+                this.isLoading=false;
                 this.router.navigate(['']);
             }, 
             errorMessage =>{
                 this.error=errorMessage;
+                this.isLoading=false;
               console.log(errorMessage) ;
             }
                 

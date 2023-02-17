@@ -19,6 +19,7 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AuthGuard } from './auth/auth.guard';
 import { TableComponent } from './table-management/table.component';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
+import { LoadingSpinner } from './shared/loading-spinner/loading-spinner.component';
 
 
 
@@ -44,7 +45,8 @@ const appRoutes: Routes =[
     AuthComponent,
     NoteComponent,
     CostComponent,
-    TableComponent
+    TableComponent,
+    LoadingSpinner,
 
   ],
   imports: [
