@@ -34,21 +34,21 @@ export class NotesComponent implements OnInit{
     const note:string = form.value.note
 
     this.notesService.createNote(note).subscribe(responseData =>{console.log(responseData); this.onShowMessage('Note created successfully');},error =>{this.onShowError(error.message)});
-    this.ngOnInit();
+    setTimeout(() =>this.ngOnInit(),500);
     
   }
 
   onShowError(error :string){
     this.error = error;
 
-    setTimeout(()=>{ this.error=null;},3500);
+    setTimeout(()=>{ this.error=null;},3000);
     
   }
 
   onShowMessage(message:string){
     this.message = message;
 
-    setTimeout(()=>{ this.message=null;},3500);
+    setTimeout(()=>{ this.message=null;},3000);
     
   }
 

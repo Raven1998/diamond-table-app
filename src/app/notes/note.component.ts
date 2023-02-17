@@ -31,12 +31,13 @@ import { NgForm } from '@angular/forms';
       }
       onEditNote(){
         const editData = this.newContent.nativeElement.value;
-        this.notesService.updateNote(this.targetNote.id,editData).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message})
+        this.notesService.updateNote(this.targetNote.id,editData).subscribe(responseData =>{console.log(responseData); this.notesComponent.onShowMessage("Changes saved!")},error =>{this.notesComponent.onShowError(error.message)})
         this.isEdited = !this.isEdited;
+        setTimeout(() =>this.notesComponent.ngOnInit(),500);
       }
       onDeleteNote(id:string){
-        this.notesService.deleteNote(id).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message});
-        this.notesComponent.ngOnInit();
+        this.notesService.deleteNote(id).subscribe(responseData =>{console.log(responseData); this.notesComponent.onShowMessage("Note deleted")},error =>{this.notesComponent.onShowError(error.message)});
+        setTimeout(() =>this.notesComponent.ngOnInit(),500);
       }
 
       onCancel(){
