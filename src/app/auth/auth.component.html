@@ -1,10 +1,10 @@
 <div class="authComponent">
 
     <div class="authContainer">
-
-        <div class="diamondLogo"><img src="assets/diamondLogo.png"></div>
+        <div class="loading" *ngIf="isLoading"><app-loading-spinner></app-loading-spinner></div>
+        <div class="diamondLogo" *ngIf="!isLoading"><img src="assets/diamondLogo.png"></div>
         <div class="authBox" *ngIf="!isLoading">
-            <div *ngIf="isLoading"><app-loading-spinner></app-loading-spinner></div>
+            
             <div class="formBox" >
                 <h3><p>Provide credentials to access the system</p></h3>
                 <form  #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
