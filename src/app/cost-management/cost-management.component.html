@@ -1,10 +1,13 @@
 <div class="costsComponent">
     <div class="costMain">
 
+        <div [className]="error ? 'error' : 'message'"  *ngIf="error || message">
+            <p *ngIf="error">{{error}}</p>
+            <p *ngIf="message">{{message}}</p>
+        </div>
+
         <div class="create-cost-zone">
-            <div class="alert alert-danger"  *ngIf="error">
-                <p>{{error}}</p>
-            </div>
+            
 
             <h2>Create Cost</h2>
 

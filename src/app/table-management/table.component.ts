@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 import { Cost } from "../cost-management/cost.model";
 import { CostsService } from "../cost-management/costs.service";
+import { TableManagementComponent } from "./table-management.component";
 import { TablesService } from "./tables.service";
 
 @Component({
@@ -17,7 +18,7 @@ export class TableComponent implements OnInit{
     @ViewChild('newTableDesc',{static:false}) newTableValue:ElementRef;
     @ViewChild('newTableCost',{static:false}) newTableCost:ElementRef;
 
-    constructor(private tablesService:TablesService, private costsService:CostsService){}
+    constructor(private tablesService:TablesService, private costsService:CostsService, private tableComponent: TableManagementComponent){}
 
 
     ngOnInit(): void {
@@ -31,7 +32,7 @@ export class TableComponent implements OnInit{
 
     onDeleteTable(id:string){
       this.tablesService.deleteTable(id).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message});
-      
+      setTimeout(() =>this.tableComponent.ngOnInit(),500);
     }
 
     onCancel(){
@@ -44,6 +45,7 @@ export class TableComponent implements OnInit{
       const editTableCost =this.newTableCost.nativeElement.value;
       this.tablesService.updateTable(this.targetTable.id,editName,editDesc,editTableCost).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message})
       this.isEdited = !this.isEdited;
+      setTimeout(() =>this.tableComponent.ngOnInit(),500);
     }
 
 }

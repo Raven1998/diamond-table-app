@@ -12,6 +12,7 @@ export class CostManagementComponent implements OnInit{
   error:string =null;
   loadedCosts:Cost[] =[];
   isEdited =false;
+  message:string =null;
 
   constructor(private costsService:CostsService){}
 
@@ -28,7 +29,7 @@ export class CostManagementComponent implements OnInit{
     const costValue:string = form.value.costValue;
 
     this.costsService.createCost(costName,costValue).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message});
-    this.ngOnInit();
+    setTimeout(() =>this.ngOnInit(),500);
     
   }
 

@@ -34,7 +34,7 @@ export class TableManagementComponent implements OnInit{
       const tableDesc = form.value.tableDesc;
       const tableCostId = form.value.tableCostId;
       this.tablesService.createTable(tableName,tableDesc,tableCostId).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message});
-      this.ngOnInit();
+      setTimeout(() =>this.ngOnInit(),500);
     
   }
 

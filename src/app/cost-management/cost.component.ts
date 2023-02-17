@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, ViewChild } from "@angular/core";
+import { CostManagementComponent } from "./cost-management.component";
 import { CostsService } from "./costs.service";
 
 @Component({
@@ -13,7 +14,7 @@ export class CostComponent{
     @ViewChild('newCostName',{static:false}) newCostName:ElementRef;
     @ViewChild('newCostValue',{static:false}) newCostValue:ElementRef;
 
-    constructor(private costsService:CostsService){}
+    constructor(private costsService:CostsService, private costComponent :CostManagementComponent){}
 
     allowEdit(){
       this.isEdited =!this.isEdited;
@@ -21,7 +22,7 @@ export class CostComponent{
 
     onDeleteCost(id:string){
       this.costsService.deleteCost(id).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message});
-      
+      setTimeout(() =>this.costComponent.ngOnInit(),500);
     }
 
     onCancel(){
@@ -33,6 +34,7 @@ export class CostComponent{
       const editValue =this.newCostValue.nativeElement.value;
       this.costsService.updateCost(this.targetCost.id,editName,editValue).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message})
       this.isEdited = !this.isEdited;
+      setTimeout(() =>this.costComponent.ngOnInit(),500);
     }
 
 }

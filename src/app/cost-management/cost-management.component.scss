@@ -90,6 +90,32 @@
     
     text-align: center;
   }
+
+  .error{
+    margin-left: 20%;
+    margin-top: 0.5%;
+    color:red;
+    font-weight: bold;
+    padding-top: 0.5%;
+    text-align: center;
+    width:60%;
+    height: 5%;
+    background-color: rgba(255, 0, 0, 0.158);
+    border-radius: 10px;
+}
+
+.message{
+  margin-left: 20%;
+  margin-top: 0.5%;
+  color:rgb(32, 167, 43);
+  font-weight: bold;
+  padding-top: 0.5%;
+  text-align: center;
+  width:60%;
+  height: 5%;
+  background-color: rgba(0, 255, 0, 0.158);
+  border-radius: 10px;
+}
   
   
   
