@@ -52,7 +52,7 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-  }
+}
 
   .form-button:hover{
     box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
@@ -75,21 +75,27 @@
   }
 
   .error{
+    margin-left: 20%;
+    margin-top: 0.5%;
     color:red;
     font-weight: bold;
     padding-top: 0.5%;
     text-align: center;
-    width:100%;
+    width:60%;
     height: 5%;
     background-color: rgba(255, 0, 0, 0.158);
+    border-radius: 10px;
 }
 
 .message{
-  color:rgb(3, 255, 24);
+  margin-left: 20%;
+  margin-top: 0.5%;
+  color:rgb(32, 167, 43);
   font-weight: bold;
   padding-top: 0.5%;
   text-align: center;
-  width:100%;
+  width:60%;
   height: 5%;
   background-color: rgba(0, 255, 0, 0.158);
+  border-radius: 10px;
 }
