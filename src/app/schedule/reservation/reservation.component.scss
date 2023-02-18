@@ -1,0 +1,26 @@
+.reservationComponent{
+    height: 94%;
+    min-width:8.32%;
+    border-radius: 10px;
+    position: absolute;
+    margin-top: 0.2%;
+}
+
+.online{
+    background-color: rgba(80, 124, 15, 0.849);
+    
+}
+
+.phone{
+    background-color: rgba(124, 55, 15, 0.849);
+}
+
+.desk{
+    background-color: rgb(100, 9, 100, 0.849);
+}
+
+.bookerName{
+    width: 100%;
+    padding: 2%;
+    font-size: large;
+}

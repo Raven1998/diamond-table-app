@@ -20,6 +20,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { TableComponent } from './table-management/table.component';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 import { LoadingSpinner } from './shared/loading-spinner/loading-spinner.component';
+import { ReservationLineComponent } from './schedule/reservation-line/reservation-line.component';
+import { ReservationComponent } from './schedule/reservation/reservation.component';
 
 
 
@@ -47,6 +49,8 @@ const appRoutes: Routes =[
     CostComponent,
     TableComponent,
     LoadingSpinner,
+    ReservationLineComponent,
+    ReservationComponent,
 
   ],
   imports: [

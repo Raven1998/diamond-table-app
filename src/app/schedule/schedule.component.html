@@ -60,6 +60,15 @@
         <button class="form-button day" (click)="onChangeDateDown()"> Previous day</button> 
         <div class="date">{{Date}}</div> 
         <button class="form-button day" (click)="onChangeDateUp()"> Next day</button>
+        <div class="legend">
+           <div class="legend-item"><div class="legend-item-desc">Online: </div><div class="legend-item-color online"></div> </div>
+           <div class="legend-item"><div class="legend-item-desc">Phone: </div><div class="legend-item-color phone"></div> </div>
+           <div class="legend-item"><div class="legend-item-desc">Desk: </div> <div class="legend-item-color desk"></div> </div>
+        
+        
+        
+        
+        </div>
     </div>
 
     <div class="schedule">
@@ -79,8 +88,8 @@
             <div class="timeline-element">22:00</div>
             <div class="timeline-element">23:00</div>
         </div>
-        <p *ngIf="loadedReservations.length <1">No reservations available!</p>
-        <p *ngFor="let res of loadedReservations" [targetRes]="res"></p>
+        <p *ngIf="loadedTables.length <1">No tables available!</p>
+        <app-reservation-line *ngFor="let table of loadedTables" [targetTable]="table"></app-reservation-line>
 
 
     </div>

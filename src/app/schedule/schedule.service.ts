@@ -16,12 +16,12 @@ export class ScheduleService{
  
      }
 
-     getReservations(date:any){
+     getReservations(date:any, tableId:string){
         return this.http.get<any>('https://localhost:5001/reservations/all')
       .pipe(map(responseData =>{
         const resArray:Reservation[]=[];
         for (const key in responseData){resArray.push({...responseData[key], nr: key})};
-        console.log(resArray)
+        //console.log(resArray)
 
         
         let requirement =date.replace(".","-");
@@ -30,14 +30,24 @@ export class ScheduleService{
         const splittedDate = condition.split('-');
         const parsedDate = splittedDate[2]+"-"+splittedDate[1]+"-"+splittedDate[0]
         
+        //Array of reservations filtered by date - we need reservations only for specified date.
         const filteredReservations =[];
         for(let i =0;i<resArray.length;i++){
             if(resArray[i].startDate.startsWith(parsedDate))
             { filteredReservations.push(resArray[i])}
         }
-    
-        console.log(filteredReservations);
-        return filteredReservations;
+        
+        //console.log(filteredReservations);
+
+        //Reservation filtered by specified table
+        const tableFilteredReservations =[];
+        for(let i =0;i<filteredReservations.length;i++){
+          if(filteredReservations[i].poolTableId == tableId)
+          { tableFilteredReservations.push(filteredReservations[i])}
+      }
+        
+        console.log(tableFilteredReservations);
+        return tableFilteredReservations;
       }))
       
       }

@@ -1,0 +1,8 @@
+<div class="reservationLineComponent">
+    <div class="table-name">{{targetTable.name}}</div>
+
+    <div class="timeline">
+        <app-reservation *ngFor="let res of loadedReservations" [targetRes]="res"></app-reservation>
+        
+    </div>
+</div>

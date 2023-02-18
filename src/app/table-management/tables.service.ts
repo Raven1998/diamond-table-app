@@ -22,7 +22,7 @@ export class TablesService{
     .pipe(map(responseData =>{
       const costsArray: Table[] =[];
       for (const key in responseData){costsArray.push({...responseData[key], nr: key})};
-      console.log(costsArray)
+      //console.log(costsArray)
       return costsArray;
     }))
     

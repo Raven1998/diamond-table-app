@@ -27,13 +27,7 @@ export class ScheduleComponent implements OnInit{
       this.loadedTables = tables;
     },error =>{this.error =error.message});
 
-    this.scheduleService.getReservations(this.Date).subscribe(reservations =>{
-      this.loadedReservations = reservations;
-    },error =>{this.error =error.message});
-
-    console.log(this.loadedReservations);
-
-  
+    
   }
 
   onCreateReservation(form:NgForm){
@@ -55,8 +49,6 @@ export class ScheduleComponent implements OnInit{
     const parsedDate = splittedDate[2]+"/"+splittedDate[1]+"/"+splittedDate[0]
     const startDate = parsedDate+" "+start;
     const endDate = parsedDate+" "+end;
-
-    console.log(startDate);
 
     //"StartDate": "17/12/2022 15:55",
     //"EndDate": "17/12/2022 15:55",
