@@ -1,5 +1,6 @@
 <div class="reservationComponent" [style.width]="width" [style.margin-left]="margin" [class.phone]="reservationType ==0" [class.online]="reservationType ==1" [class.desk]="reservationType ==2">
     <div class="bookerName">{{targetRes.bookerName}}</div>
+    <div class="resDetails">{{startTime}} | {{isPaid ? 'PAID' : 'UNPAID'}} | {{endTime}}</div>
 
 
 </div>

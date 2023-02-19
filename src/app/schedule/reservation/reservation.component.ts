@@ -7,13 +7,22 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ReservationComponent implements OnInit{
   @Input()targetRes;
-    width;
-    margin;
+    width :string;
+    margin:string;
     reservationType;
+    startTime;
+    endTime;
+    isPaid
     constructor(){}
 
     ngOnInit(): void {
       this.prepareReservationBox();
+      const startDate = this.targetRes.startDate;
+      this.startTime = startDate.substring(11,16)
+      const endDate = this.targetRes.endDate;
+      this.endTime = endDate.substring(11,16)
+      this.isPaid = this.targetRes.isPaid;
+      console.log(this.isPaid);
     }
 
     prepareReservationBox(){
@@ -21,6 +30,7 @@ export class ReservationComponent implements OnInit{
       this.calculateBoxPosition();
       this.checkReservationType();
     }
+
     checkReservationType(){
       this.reservationType =this.targetRes.reservationType;
     }
