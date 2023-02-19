@@ -2,7 +2,16 @@
     <div class="table-name">{{targetTable.name}}</div>
 
     <div class="timeline">
+        <div class="currentTime" [style.margin-left]="currentTimeMargin" *ngIf="currentTimeMargin"><div class="rotate">Present Time</div></div>
         <app-reservation *ngFor="let res of loadedReservations" [targetRes]="res"></app-reservation>
         
+    </div>
+
+    <div class="resCount">
+        <div class="resNumber">{{resCount}}</div>
+        <div class="title">{{resCount >1 ?'Reservations' : 'Reservation'}}</div>
+        
+        
+    
     </div>
 </div>

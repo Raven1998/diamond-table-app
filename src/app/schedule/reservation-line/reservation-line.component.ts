@@ -13,16 +13,29 @@ export class ReservationLineComponent implements OnInit{
     Date =null;
     loadedReservations =[]
     error =null;
+    resCount:number;
+    currentTimeMargin:string =null;
     constructor(private scheduleService: ScheduleService, private scheduleComponent: ScheduleComponent){}
 
     ngOnInit(): void {
       this.Date = this.scheduleComponent.Date;
       this.scheduleService.getReservations(this.Date,this.targetTable.id).subscribe(reservations =>{
         this.loadedReservations = reservations;
+        this.resCount =reservations.length;
       },error =>{this.error =error.message});
 
-      
+      this.showCurrentTimeLine();
     }
 
+    showCurrentTimeLine(){
+      const presentDate =new Date();
 
+      if (presentDate.getHours() >11 && presentDate.getHours()<23){
+      let pointOfReferrence = new Date();
+      pointOfReferrence.setHours(11,0);
+      let difference = (presentDate.getTime()-pointOfReferrence.getTime())/60000;
+      const margin = difference*0.138;
+      this.currentTimeMargin =margin +"%";
+      }
+    }
 }

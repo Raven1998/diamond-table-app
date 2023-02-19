@@ -22,7 +22,6 @@ export class ReservationComponent implements OnInit{
       const endDate = this.targetRes.endDate;
       this.endTime = endDate.substring(11,16)
       this.isPaid = this.targetRes.isPaid;
-      console.log(this.isPaid);
     }
 
     prepareReservationBox(){
@@ -40,7 +39,7 @@ export class ReservationComponent implements OnInit{
 
     let duration =(end-start)/3600000;
 
-    let boxSize=duration*8.32;
+    let boxSize=duration*8.33;
 
     this.width=boxSize+"%";
   }
@@ -54,7 +53,7 @@ export class ReservationComponent implements OnInit{
 
     const difference = (start-pointOfReferrence.getTime())/900000;
 
-    let boxMargin=difference*1.95;
+    let boxMargin=difference*2.0833;
 
     this.margin=boxMargin+"%";
   
