@@ -1,0 +1,22 @@
+.detailsComponent{
+    height:90vh;
+    width:100vw;
+    position: relative;
+}
+
+.detailsMain{
+    height: 100%;
+    width:80%;
+    float:left
+}
+
+.detailsDesc{
+    height: 98%;
+    margin-top:2%;
+    width:20%;
+    float:right;
+    border-left: 3px solid #bbb;
+    padding-left:1%;
+    padding-right: 1%;
+    user-select: none;
+}

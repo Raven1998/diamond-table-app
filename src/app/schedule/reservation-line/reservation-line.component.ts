@@ -34,7 +34,7 @@ export class ReservationLineComponent implements OnInit{
       let pointOfReferrence = new Date();
       pointOfReferrence.setHours(11,0);
       let difference = (presentDate.getTime()-pointOfReferrence.getTime())/60000;
-      const margin = difference*0.1388;
+      const margin = difference*0.13888;
       this.currentTimeMargin =margin +"%";
       }
     }

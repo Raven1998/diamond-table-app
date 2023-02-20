@@ -12,7 +12,8 @@ export class ReservationComponent implements OnInit{
     reservationType;
     startTime;
     endTime;
-    isPaid
+    isPaid;
+    resID
     constructor(){}
 
     ngOnInit(): void {
@@ -22,6 +23,7 @@ export class ReservationComponent implements OnInit{
       const endDate = this.targetRes.endDate;
       this.endTime = endDate.substring(11,16)
       this.isPaid = this.targetRes.isPaid;
+      this.resID =this.targetRes.id;
     }
 
     prepareReservationBox(){

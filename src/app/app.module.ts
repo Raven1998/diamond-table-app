@@ -22,6 +22,7 @@ import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-
 import { LoadingSpinner } from './shared/loading-spinner/loading-spinner.component';
 import { ReservationLineComponent } from './schedule/reservation-line/reservation-line.component';
 import { ReservationComponent } from './schedule/reservation/reservation.component';
+import { ReservationDetailsComponent } from './schedule/reservation-details/reservation-details.component';
 
 
 
@@ -31,7 +32,8 @@ const appRoutes: Routes =[
  {path:'cost-management', component: CostManagementComponent, canActivate: [AuthGuard]},
  {path:'notes', component: NotesComponent, canActivate: [AuthGuard]},
  {path:'statistics', component: StatisticsComponent, canActivate: [AuthGuard]},
- {path:'auth', component: AuthComponent}
+ {path:'auth', component: AuthComponent},
+ {path:'reservation-details/:id',component: ReservationDetailsComponent, canActivate: [AuthGuard]}
 ];
 
 
@@ -51,6 +53,7 @@ const appRoutes: Routes =[
     LoadingSpinner,
     ReservationLineComponent,
     ReservationComponent,
+    ReservationDetailsComponent,
 
   ],
   imports: [
