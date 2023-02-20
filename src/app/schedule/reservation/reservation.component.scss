@@ -32,6 +32,7 @@
     padding: 2%;
     font-size: large;
     height: 70%;
+    user-select: none;
 }
 .resDetails{
     width: 100%;
@@ -40,4 +41,5 @@
     color:gray;
     font-weight: bold;
     font-size: 0.93em;
+    user-select: none;
 }

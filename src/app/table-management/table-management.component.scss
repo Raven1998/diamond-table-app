@@ -18,6 +18,7 @@
     border-left: 3px solid #bbb;
     padding-left:1%;
     padding-right: 1%;
+    user-select: none;
 }
 
 .create-table-zone{
@@ -83,7 +84,7 @@
   h2{
     text-align: center;
     background-color: #06421ade;
-    
+    user-select: none;
   }
 
   .form-buttons{

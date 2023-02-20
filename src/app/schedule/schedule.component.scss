@@ -39,7 +39,7 @@
   h2{
     text-align: center;
     background-color: #06421ade;
-    
+    user-select: none;
   }
 
   .res-topic{
@@ -146,6 +146,7 @@ float: right;
     border-bottom: none;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    user-select: none;
   }
 
   .timeline-element{
@@ -165,6 +166,7 @@ float: right;
     text-align: right;
     position: relative;
     padding-right: 2%;
+    user-select: none;
   }
   .legend-item{
     width: 17%;

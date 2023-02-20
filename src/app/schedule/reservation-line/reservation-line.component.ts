@@ -24,7 +24,7 @@ export class ReservationLineComponent implements OnInit{
         this.resCount =reservations.length;
       },error =>{this.error =error.message});
 
-      this.showCurrentTimeLine();
+      setInterval(()=>this.showCurrentTimeLine(),1000);
     }
 
     showCurrentTimeLine(){
@@ -34,7 +34,7 @@ export class ReservationLineComponent implements OnInit{
       let pointOfReferrence = new Date();
       pointOfReferrence.setHours(11,0);
       let difference = (presentDate.getTime()-pointOfReferrence.getTime())/60000;
-      const margin = difference*0.138;
+      const margin = difference*0.1388;
       this.currentTimeMargin =margin +"%";
       }
     }
