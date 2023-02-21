@@ -52,5 +52,17 @@ export class ScheduleService{
       
       }
 
+      getSingleReservation(id:string){
+        return this.http.get<any>('https://localhost:5001/reservations/'+id)
+      .pipe(map(responseData =>{
+        const reservation=responseData;
+       // console.log(reservation);
+        return reservation;
+       
+      }
+        
+        ));
+
+      }
 
 }

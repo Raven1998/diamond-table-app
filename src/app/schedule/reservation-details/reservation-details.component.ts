@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ScheduleService } from '../schedule.service';
 
 @Component({
   selector: 'app-reservation-details',
@@ -8,12 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ReservationDetailsComponent implements OnInit{
 
-  constructor(private route:ActivatedRoute){}
+  error =null;
+  reservation:any;
+  constructor(private route:ActivatedRoute, private scheduleService :ScheduleService){}
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
-
-    console.log(id);
+    this.scheduleService.getSingleReservation(id).subscribe(reservations =>{
+      this.reservation = reservations;
+    },error =>{this.error =error.message});
+    
   }
 
 }
