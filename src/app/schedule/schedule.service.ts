@@ -61,8 +61,11 @@ export class ScheduleService{
        
       }
         
-        ));
+      ));
+      }
 
+      deleteReservation(id:string){
+        return this.http.delete('https://localhost:5001/reservations/'+id)
       }
 
 }

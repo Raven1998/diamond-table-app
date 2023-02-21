@@ -21,4 +21,8 @@ export class ReservationDetailsComponent implements OnInit{
     
   }
 
+  onDeleteReservation(id:string){
+    this.scheduleService.deleteReservation(id).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message});
+  }
+
 }
