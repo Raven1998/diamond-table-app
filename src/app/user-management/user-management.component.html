@@ -1,0 +1,51 @@
+<div class="usersComponent">
+    <div class="userMain">
+
+        <div [className]="error ? 'error' : 'message'"  *ngIf="error || message">
+            <p *ngIf="error">{{error}}</p>
+            <p *ngIf="message">{{message}}</p>
+        </div>
+
+        <div class="create-user-zone">
+            
+
+            <h2>Create User</h2>
+
+            <form  #userForm="ngForm" (ngSubmit)="onCreateUser(userForm)">
+                <div class="form-group">
+                    
+                    
+                    <input type="text" id='costName' class="form-control" ngModel name="costName" placeholder="Username" required>
+                    <input type="password" id='costValue' class="form-control" ngModel name="costValue" placeholder="Password" required>
+                
+                
+                </div>
+                
+                <div class="form-buttons">
+                    <button class="form-button" type="submit">Create User</button>
+                </div> 
+            </form>
+
+        </div>
+
+        <div class="users-zone">
+            <h2>Users List</h2>
+
+            <p *ngIf="loadedUsers.length <1">No users available!</p>
+
+            <app-user *ngFor="let user of loadedUsers" [targetUser]="user"></app-user>
+        </div>
+
+    </div>
+
+
+
+
+    <div class ='userDesc'>
+        <h1>User Management</h1>
+        <p>Create the account for your staff member you want to grant an access to the system.</p>
+        <p>You can also change password for all of available users.</p>
+        
+    </div>
+
+</div>

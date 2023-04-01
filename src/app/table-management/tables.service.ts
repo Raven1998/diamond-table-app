@@ -28,6 +28,18 @@ export class TablesService{
     
     }
 
+    getSingleTable(id:string){
+      return this.http.get<any>('https://localhost:5001/pooltables/'+id)
+    .pipe(map(responseData =>{
+      const table=responseData;
+     // console.log(reservation);
+      return table;
+     
+    }
+      
+    ));
+    }
+
     
     updateTable(id:string, name:string, desc:string, costId:string){
       let params={

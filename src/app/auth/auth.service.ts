@@ -51,13 +51,13 @@ export class AuthService{
 
         this.user.next(loadedUser);
         const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
-        this.autoLogout(expirationDuration);
+        //this.autoLogout(expirationDuration);
       }
     }
 
-    autoLogout(expirationDuration: number){
-       this.tokenExpirationTimer = setTimeout(() =>{this.logout()}, expirationDuration)
-    }
+    //autoLogout(expirationDuration: number){
+    //   this.tokenExpirationTimer = setTimeout(() =>{this.logout()}, expirationDuration)
+   // }
 
 
     private handleAuthentication(login:string, role:string, token:string){
@@ -65,7 +65,7 @@ export class AuthService{
             const expirationDate = new Date(new Date().getTime() + 28800000);
             const user =new User(login,role,token,expirationDate);
             this.user.next(user);
-            this.autoLogout(Date.parse(expirationDate.toString()));
+            //this.autoLogout(Date.parse(expirationDate.toString()));
             localStorage.setItem('userData', JSON.stringify(user));
     }
 

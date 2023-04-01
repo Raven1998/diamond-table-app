@@ -37,7 +37,7 @@ export class ScheduleService{
             { filteredReservations.push(resArray[i])}
         }
         
-        //console.log(filteredReservations);
+        
 
         //Reservation filtered by specified table
         const tableFilteredReservations =[];

@@ -1,7 +1,8 @@
-<div class="reservationComponent"  [style.width]="width" [style.margin-left]="margin" [class.phone]="reservationType ==0" [class.online]="reservationType ==1" [class.desk]="reservationType ==2" [routerLink]="['/reservation-details',resID]">
+<a [routerLink]="['/reservation-details',resID]" [state]="{data: targetRes}">
+<div class="reservationComponent"  [style.width]="width" [style.margin-left]="margin" [class.phone]="reservationType ==0" [class.online]="reservationType ==1" [class.desk]="reservationType ==2" >
     <div class="bookerName">{{targetRes.bookerName}}</div>  
     <div class="resDetails">{{startTime}} | {{isPaid ? 'PAID' : 'UNPAID'}} | {{endTime}}</div>
 
 
 </div>
-
+</a>

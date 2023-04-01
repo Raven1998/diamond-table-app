@@ -42,16 +42,11 @@ export class ScheduleComponent implements OnInit{
     const Note = form.value.note;
     const resType = form.value.resType.toLowerCase();
   
-    
-    
-
     const splittedDate = date.split('-');
     const parsedDate = splittedDate[2]+"/"+splittedDate[1]+"/"+splittedDate[0]
     const startDate = parsedDate+" "+start;
     const endDate = parsedDate+" "+end;
 
-    //"StartDate": "17/12/2022 15:55",
-    //"EndDate": "17/12/2022 15:55",
     this.scheduleService.createReservation(resTableId,bookerName,email,phone,startDate,endDate,isPaid,Note,resType).subscribe(responseData =>{console.log(responseData)},error =>{this.error =error.message});
     this.ngOnInit();
     
@@ -66,4 +61,13 @@ export class ScheduleComponent implements OnInit{
     this.appComponent.dateDown();
     this.ngOnInit();
   }
+
+
+
+
+
 }
+
+
+
+

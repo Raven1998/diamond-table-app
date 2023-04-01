@@ -6,10 +6,12 @@
     <li routerLinkActive="active"><a routerLink="/notes" *ngIf="isAuthenticated">Notes</a></li>
     <li routerLinkActive="active"><a routerLink="/statistics" *ngIf="isAuthenticated">Statistics</a></li>
     <li class="right" routerLinkActive="active"><a routerLink="/auth" *ngIf="!isAuthenticated">Login</a></li>
+    
 
     <li class="right" *ngIf="isAuthenticated">
       <a (click)="onLogout()">Logout</a>
     </li>
+    <li class="right" routerLinkActive="active"><a routerLink="/user-management" *ngIf="isAuthenticated">User Management</a></li>
   </ul>
 
   <ul >

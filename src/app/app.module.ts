@@ -23,6 +23,8 @@ import { LoadingSpinner } from './shared/loading-spinner/loading-spinner.compone
 import { ReservationLineComponent } from './schedule/reservation-line/reservation-line.component';
 import { ReservationComponent } from './schedule/reservation/reservation.component';
 import { ReservationDetailsComponent } from './schedule/reservation-details/reservation-details.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { UserComponent } from './user-management/user/user.component';
 
 
 
@@ -30,6 +32,7 @@ const appRoutes: Routes =[
  {path:'', component: ScheduleComponent, canActivate: [AuthGuard]},
  {path:'table-management', component: TableManagementComponent, canActivate: [AuthGuard]},
  {path:'cost-management', component: CostManagementComponent, canActivate: [AuthGuard]},
+ {path:'user-management', component: UserManagementComponent, canActivate: [AuthGuard]},
  {path:'notes', component: NotesComponent, canActivate: [AuthGuard]},
  {path:'statistics', component: StatisticsComponent, canActivate: [AuthGuard]},
  {path:'auth', component: AuthComponent},
@@ -54,6 +57,8 @@ const appRoutes: Routes =[
     ReservationLineComponent,
     ReservationComponent,
     ReservationDetailsComponent,
+    UserManagementComponent,
+    UserComponent,
 
   ],
   imports: [
@@ -61,8 +66,7 @@ const appRoutes: Routes =[
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    DlDateTimeDateModule,  // <--- Determines the data type of the model
-    DlDateTimePickerModule,
+    
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:AuthInterceptorService, multi:true}],
   bootstrap: [AppComponent]

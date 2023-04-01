@@ -6,14 +6,55 @@
                 <div class="bookerName">{{reservation.bookerName}}</div>
             </div>
             <div class="reservation-details-second">
-
+                <div class="reservation-date">
+                    <div class="detail-title">Reservation Date</div>
+                    <div class="reservation-day">{{day}}</div>
+                    <div class="reservation-time">From: {{timeOfStart}} To: {{timeOfEnd}}</div>
+                </div>
+                <div class="table">
+                    <div class="detail-title">Table</div>
+                    <div class="icon-table"><img src="assets/table.png"></div>
+                    <div class="table-info">
+                        <div class="table-name">{{table.name}}</div>
+                        <div class="table-desc">{{table.description}}</div>
+                    </div>
+                </div>
+                <div class="contact-details">
+                    <div class="detail-title">Contact Details</div>
+                    <div class ="booker-email">
+                        <div class="contact-type">E-mail:</div>
+                        {{reservation.email}}
+                    </div>
+                    <div class ="booker-phone">
+                        <div class="contact-type">Phone Number:</div>
+                        {{reservation.phoneNumber}}
+                    </div>
+                    
+                    
+                </div>
             </div>
             <div class="reservation-details-third">
+                <div class="reservation-note">
+                    <div class="detail-title">Notes</div>
+                    <div class="note-content">{{reservation.note}}</div>
+                    
+                </div>
+                <div class="payment">
+                    <div class="detail-title">Payment</div>
+                    <div class="icon-cost"><img src="assets/cost.png"></div>
+                    <div class="table-info">
+                        <div class="table-name">{{table.name}}</div>
+                        <div class="table-desc">{{table.description}} <br>Not Paid Yet</div>
+                        
+                    </div>
+
+                </div>
 
             </div>
             <div class="buttons-line">
-                <button class="delete" (click)="onDeleteReservation(reservation.id)">Delete</button>
-
+                <button class="delete blue" (click)="onDeleteReservation(reservation.id)">Edit</button>
+                <button class="delete" (click)="onDeleteReservation(reservation.id)">Mark as Paid</button>
+                <button class="delete red" (click)="onDeleteReservation(reservation.id)">Delete</button>
             </div>
        </div> 
 
